@@ -15,11 +15,11 @@ file_to_save = os.path.join("Module3Python/Election_Analysis/analysis","election
 
 # Initialize the total vote counter
 total_votes = 0
-# Candidate options and candidate votes
+# Candidate options and candidate votes. WHAT IS THE POINT OF CANDIDATE_OPTIONS, WE NEVER REALLY USE IT
 candidate_options = []
 candidate_votes = {}
 
-# Winning Candidate and Winning Count Tracker
+# Track the winning candidate, vote count, and percentage.
 winning_candidate = ""
 winning_count = 0
 winning_percentage = 0
@@ -36,10 +36,9 @@ with open(file_to_load) as election_data:
     for row in file_reader:
         # Add the total vote count
         total_votes += 1
-
-        # Print the candidate name from each row
+        # Get the candidate name from each row
         candidate_name = row[2]
-        # If the candidate name does not match any existing options...
+        # If the candidate name does not match any existing options, add to candidate list.
         if candidate_name not in candidate_options:
 
             # Add the candidate name to the candidate list
@@ -50,34 +49,51 @@ with open(file_to_load) as election_data:
         
         # Add a vote to that candidate's count
         candidate_votes[candidate_name]  += 1
-    
-    print(candidate_votes)
 
-    #   WHY IF CHANGE CANDIDATE_NAME VARIABLE IT DOESN'T WORK
-    for candidate_name in candidate_votes:
+    # Save the results to our text file.
+    with open(file_to_save,"w") as txt_file:
+
+        election_results = (
+            f"\nElection Results\n"
+            f"-------------------------\n"
+            f"Total Votes: {total_votes:,}\n"
+            f"-------------------------\n")
+        print(election_results, end="")
+        #Save the final vote count to the text file.
+        txt_file.write(election_results)
+
+        #   WHY IF CHANGE CANDIDATE_NAME VARIABLE IT DOESN'T WORK
+        for candidate_name in candidate_votes:
+            # Retrieve the vote count and percentage
+            votes = candidate_votes[candidate_name]
+            vote_percentage = float(votes)/float(total_votes)*100
+
+            candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+            print(candidate_results)
+            txt_file.write(candidate_results)
+
+            # Determine the winning vote count, winning percentage, and candidate.
+            if (votes>winning_count) and (vote_percentage > winning_percentage):
+                winning_count = votes
+                winning_percentage = vote_percentage
+                winning_candidate = candidate_name
+
         
-        votes = candidate_votes[candidate_name]
+        
+            #print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.") 
 
-        vote_percentage = (float(votes)/float(total_votes)*100)
+        # Print winning candidate's results to the terminal.
+        winning_candidate_summary = (
+        f"-------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"-------------------------\n")
 
-        print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
-        # Determine winning vote count and candidate
-        # Determine if the votes are greater than the winning count
-        if (votes>winning_count) and (vote_percentage > winning_percentage):
-            winning_count = votes
-            winning_percentage = vote_percentage
-            winning_candidate = candidate_name
-
-        print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.") 
-
-    winning_candidate_summary = (
-    f"-------------------------\n"
-    f"Winner: {winning_candidate}\n"
-    f"Winning Vote Count: {winning_count:,}\n"
-    f"Winning Percentage: {winning_percentage:.1f}%\n"
-    f"-------------------------\n")
-    print(winning_candidate_summary)    
-
-
-
+        print(winning_candidate_summary)
+        # Save the winning candidate's results to the text file.
+        txt_file.write(winning_candidate_summary)
+    
+    #print(winning_candidate_summary)  
+      
 
