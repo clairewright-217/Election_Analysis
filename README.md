@@ -137,9 +137,11 @@ Using similar methods, the performance of each candidate who participated in the
 
 **Total Votes: 369,711**
 
-**Charles Casper Stockham: 23.0% (85,213)
-**Diana DeGette: 73.8% (272,892)
-**Raymon Anthony Doane: 3.1% (11,606)
+**Charles Casper Stockham: 23.0% (85,213)**
+
+**Diana DeGette: 73.8% (272,892)**
+
+**Raymon Anthony Doane: 3.1% (11,606)**
 
 This shows that Diana DeGette won the election:
 
