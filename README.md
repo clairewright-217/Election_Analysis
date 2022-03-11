@@ -62,18 +62,18 @@ I used the `next` function to skip the first row of data in the csv file, which 
    > headers = next(file_reader)
     
    > for row in file_reader:
-   > 
+    
       > total_votes += 1
       > candidate_name = row[2]
-      > 
+       
       > if candidate_name not in candidate_options:
-      > 
+       
           > candidate_options.append(candidate_name)
-          > 
+           
           > # And begin tracking that candidate's voter count.
-          > 
+           
           > candidate_votes[candidate_name] = 0
-          > 
+           
       > candidate_votes[candidate_name] += 
 
 5. Using f-strings to print out data summaries with a mix of strings and variables. Variables are written inside squiggly brackets, `{}`.
