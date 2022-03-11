@@ -136,12 +136,9 @@ The output to the terminal and text file shows that Denver had the largest turno
 Using similar methods, the performance of each candidate who participated in the congressional election was evalauted. We can see from the analysis output that 369,711 ballots were cast, and that Raymon Anthony Doane recieved just 3.1% of the vote, while Diana DeGette received a full 73.8% of the vote. Charles Casper Stockham finished in the middle with 23.0% of the vote. 
 
 > Total Votes: 369,711
-
-> Charles Casper Stockham: 23.0% (85,213)
-
-> **Diana DeGette: 73.8% (272,892)**
-
-> **Raymon Anthony Doane: 3.1% (11,606)**
+Charles Casper Stockham: 23.0% (85,213)
+Diana DeGette: 73.8% (272,892)
+Raymon Anthony Doane: 3.1% (11,606)
 
 This shows that Diana DeGette won the election:
 
