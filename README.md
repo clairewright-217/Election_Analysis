@@ -84,11 +84,11 @@ f-strings enable variables to be included within strings and for the variables t
 
 ```
 txt_file.write(election_results)
-  for candidate_name in candidate_votes:
-     # Retrieve vote count and percentage.
-     votes = candidate_votes[candidate_name]
-     vote_percentage = float(votes) / float(total_votes) * 100
-     candidate_results = (
+   for candidate_name in candidate_votes:
+      # Retrieve vote count and percentage.
+      votes = candidate_votes[candidate_name]
+      vote_percentage = float(votes) / float(total_votes) * 100
+      candidate_results = (
          f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 ```            
 
