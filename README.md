@@ -127,7 +127,7 @@ The values of all of the `winning_county` variable from the conditional above wa
     print(winning_county_summary) 
 ```
 
-The output to the terminal and text file looked like this: 
+The output to the terminal and text file shows that Denver had the largest turnout: 
 
 **Largest County Turnout: Denver**
 
