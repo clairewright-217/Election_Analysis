@@ -55,7 +55,7 @@ I had to create a new folder, "analysis", on my computer for the path to this lo
 
 I used the `next` function to skip the first row of data in the csv file, which was the header row of the columns of data. I only wanted to analyze the data that fell below the headers. Also, I used the `+=` syntax to count through all of the rows in the for loop to total them up, which represented the total number of votes. Finally I used an `if` statement to build up a list of unique candidate names so I could loop through the candidate list later on in the code and tally their votes individually. 
 
-```with open(file_to_load) as election_data:
+``with open(file_to_load) as election_data:
     file_reader = csv.reader(election_data)
     # Read the header row.
     headers = next(file_reader)
@@ -73,24 +73,24 @@ I used the `next` function to skip the first row of data in the csv file, which 
             # And begin tracking that candidate's voter count.
             candidate_votes[candidate_name] = 0
         # Add a vote to that candidate's count.
-        candidate_votes[candidate_name] += 1```
+        candidate_votes[candidate_name] += 1``
         
 
 5. Using f-strings to print out data summaries with a mix of strings and variables. Variables are written inside squiggly brackets, `{}`.
 
 f-strings enable variables to be included within strings and for the variables to be printed out as strings. For example, in the following code, an f-string is used: 
 
-```txt_file.write(election_results)
+``txt_file.write(election_results)
     for candidate_name in candidate_votes:
         # Retrieve vote count and percentage.
         votes = candidate_votes[candidate_name]
         vote_percentage = float(votes) / float(total_votes) * 100
         candidate_results = (
-            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")```
+            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")``
             
 An example output that would be written in the specified `txt` file from the code above would looke like:
 
-```Charles Casper Stockham: 23.0% (85,213)```
+>Charles Casper Stockham: 23.0% (85,213)
 
 
 ## Challenge Summary
