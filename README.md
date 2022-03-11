@@ -49,3 +49,53 @@ The data file provided for this analysis was a [csv file](Resources/election_res
 
 ## Election Audit Results
 
+The first step in analyzing the election results in Python was to import the `csv` and `os` modules, which were important python dependencies needed for our analysis. The `os` module was used to open the csv file without needing to know the direct path, making it a more robust way to share this code with others to run the same analysis. The `os` module was also used to provide the indirect path to the [text file](analysis/election_analysis.txt) where the analysis summary was written, and to write to this file.
+
+
+How many votes were cast in this congressional election?
+### Calculating Total Votes Cast
+
+The first analysis done was to determine how many votes were cast in the congressional election. Based on a quick, manual evaluation of the data in the Election Results csv file, it had a header row for Ballot ID, County, and Candidate, and then thousands of lines of data with this information. Therefore, each row below the header repesented one vote in the election. 
+
+First, a variable was created outside a `for` loop to store the total votes. Then, the csv file was opened using a `with` statement, and the `csv` module was used with the `.reader` function to read through each row. The `next` function in Python was used to skip the header row and exclude it from our count. Finally, the `+=` operator was used to add each row the count of the variable tracking the total votes. 
+
+```
+total_votes = 0
+
+with open(file_to_load) as election_data:
+    reader = csv.reader(election_data)
+
+    header = next(reader)
+
+    for row in reader:
+
+        total_votes = total_votes + 1
+```
+
+While looping through each row in the csv file, two blocks of conditional statements were used after the `for` loop to create a unique `list` of candidate names and counties. The `list` of counties and `list` of candidates then served as `keys` within the two distinct dictionaries that stored the votes per county and votes per candidate. Here is a code sample for creating a dictionary of votes per county based reading through each row of the csv file within a `for` loop.
+
+```
+county_list = []
+county_votes = {}
+
+# other code not included here
+
+ for row in reader:
+ 
+ # other code not included here
+     county_name = row[1]
+     
+     if county_name not in county_list:
+                county_list.append(county_name)
+                county_votes[county_name] = 0
+            county_votes[county_name] += 1
+```
+
+Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
+Which county had the largest number of votes?
+Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
+Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
+
+
+
+
