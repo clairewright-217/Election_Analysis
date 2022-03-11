@@ -72,30 +72,86 @@ with open(file_to_load) as election_data:
         total_votes = total_votes + 1
 ```
 
-While looping through each row in the csv file, two blocks of conditional statements were used after the `for` loop to create a unique `list` of candidate names and counties. The `list` of counties and `list` of candidates then served as `keys` within the two distinct dictionaries that stored the votes per county and votes per candidate. Here is a code sample for creating a dictionary of votes per county based reading through each row of the csv file within a `for` loop.
+While looping through each row in the csv file, two blocks of conditional statements were used after the `for` loop to create a unique `list` of candidate names and counties. The `list` of counties and `list` of candidates then served as `keys` within the two distinct dictionaries that stored the votes per county and votes per candidate. Another `+=` operator was used to tally each vote per county to the corresponding `key` within the `county_votes` dictionary. Here is a code sample for creating a dictionary of votes per county based reading through each row of the csv file within a `for` loop.
 
 ```
 county_list = []
 county_votes = {}
 
-# other code not included here
+# other code not shown here
 
  for row in reader:
  
- # other code not included here
+ # other code not shown here
+ 
      county_name = row[1]
      
      if county_name not in county_list:
+                
                 county_list.append(county_name)
                 county_votes[county_name] = 0
+            
             county_votes[county_name] += 1
 ```
 
-Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
-Which county had the largest number of votes?
-Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
-Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
+### Calculating the number and the percentage of total votes for each county in the precinct.
 
+Now that a dictionary was created that stored each unique county as a `key` and the total number of votes per county as the `value` after the first `for` loop completed, it was possible to show the total and percentage of total votes by county.
 
+Another `for` loop was used to iterate through the dictionary of votes per county. New variables were created to store the total number of votes per each county, and then use basic math to calculate the percentage of votes by dividing this number into the total votes previously calculated. 
 
+```
+for county_name in county_votes:
+       
+        cvotes = county_votes.get(county_name)
+        
+        cvotes_percentage = float(cvotes) / float(total_votes)*100
+```
+
+A conditional was used in this `for` loop to find the vote count and the name of the county with the highest turnout. 
+
+```
+ if cvotes > winning_county_count:
+    winning_county_count = cvotes
+    winning_county = county_name
+```
+            
+
+The values of all of the `winning_county` variable from the conditional above was printed to the terminal and on the [Election Analysis text file](analyis/election_analysis.txt) in a formatted style using an f-string. 
+
+```
+ winning_county_summary = (
+        f"\n-------------------------\n"
+        f"Largest County Turnout: {winning_county}\n"
+        f"-------------------------\n")
+    print(winning_county_summary) 
+```
+
+The output to the terminal and text file looked like this: 
+
+-------------------------
+Largest County Turnout: Denver
+-------------------------
+
+### The number and percentage of votes each candidate received
+
+Using similar methods, the performance of each candidate who participated in the congressional election was evalauted. We can see from the analysis output that 369,711 ballots were cast, and that Raymon Anthony Doane recieved just 3.1% of the vote, while Diana DeGette received a full 73.8% of the vote. Charles Casper Stockham finished in the middle with 23.0% of the vote. 
+
+Election Results
+-------------------------
+Total Votes: 369,711
+-------------------------
+
+**Charles Casper Stockham: 23.0% (85,213)
+Diana DeGette: 73.8% (272,892)
+Raymon Anthony Doane: 3.1% (11,606)
+**
+
+This shows that Diana DeGette won the election:
+
+-------------------------
+Winner: Diana DeGette
+Winning Vote Count: 272,892
+Winning Percentage: 73.8%
+-------------------------
 
