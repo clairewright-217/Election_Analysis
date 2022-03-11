@@ -129,18 +129,13 @@ The values of all of the `winning_county` variable from the conditional above wa
 
 The output to the terminal and text file looked like this: 
 
--------------------------
-Largest County Turnout: Denver
--------------------------
+**Largest County Turnout: Denver**
 
 ### The number and percentage of votes each candidate received
 
 Using similar methods, the performance of each candidate who participated in the congressional election was evalauted. We can see from the analysis output that 369,711 ballots were cast, and that Raymon Anthony Doane recieved just 3.1% of the vote, while Diana DeGette received a full 73.8% of the vote. Charles Casper Stockham finished in the middle with 23.0% of the vote. 
 
-Election Results
--------------------------
-Total Votes: 369,711
--------------------------
+**Total Votes: 369,711**
 
 **Charles Casper Stockham: 23.0% (85,213)
 Diana DeGette: 73.8% (272,892)
@@ -149,9 +144,7 @@ Raymon Anthony Doane: 3.1% (11,606)
 
 This shows that Diana DeGette won the election:
 
--------------------------
-Winner: Diana DeGette
+**Winner: Diana DeGette
 Winning Vote Count: 272,892
-Winning Percentage: 73.8%
--------------------------
+Winning Percentage: 73.8%**
 
