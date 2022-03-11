@@ -82,14 +82,16 @@ I used the `next` function to skip the first row of data in the csv file, which 
 
 f-strings enable variables to be included within strings and for the variables to be printed out as strings. For example, in the following code, an f-string is used: 
 
-> txt_file.write(election_results)
-    for candidate_name in candidate_votes:
-        # Retrieve vote count and percentage.
-        votes = candidate_votes[candidate_name]
-        vote_percentage = float(votes) / float(total_votes) * 100
-        candidate_results = (
-            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
-            
+```
+txt_file.write(election_results)
+  for candidate_name in candidate_votes:
+     # Retrieve vote count and percentage.
+     votes = candidate_votes[candidate_name]
+     vote_percentage = float(votes) / float(total_votes) * 100
+     candidate_results = (
+         f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+```            
+
 An example output that would be written in the specified `txt` file from the code above would looke like:
 
 >Charles Casper Stockham: 23.0% (85,213)
