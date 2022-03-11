@@ -58,9 +58,9 @@ I used the `next` function to skip the first row of data in the csv file, which 
 > with open(file_to_load) as election_data:
 >
    > file_reader = csv.reader(election_data)
-   > 
+    
    > headers = next(file_reader)
-   > 
+    
    > for row in file_reader:
    > 
       > total_votes += 1
