@@ -56,25 +56,25 @@ I had to create a new folder, "analysis", on my computer for the path to this lo
 I used the `next` function to skip the first row of data in the csv file, which was the header row of the columns of data. I only wanted to analyze the data that fell below the headers. Also, I used the `+=` syntax to count through all of the rows in the for loop to total them up, which represented the total number of votes. Finally I used an `if` statement to build up a list of unique candidate names so I could loop through the candidate list later on in the code and tally their votes individually. 
 
 > with open(file_to_load) as election_data:
->
-   > file_reader = csv.reader(election_data)
+
+    file_reader = csv.reader(election_data)
     
-   > headers = next(file_reader)
+    headers = next(file_reader)
     
-   > for row in file_reader:
+    for row in file_reader:
     
-      > total_votes += 1
-      > candidate_name = row[2]
+       total_votes += 1
+       candidate_name = row[2]
        
-      > if candidate_name not in candidate_options:
+       if candidate_name not in candidate_options:
        
-          > candidate_options.append(candidate_name)
+           candidate_options.append(candidate_name)
            
-          > # And begin tracking that candidate's voter count.
+           # And begin tracking that candidate's voter count.
            
-          > candidate_votes[candidate_name] = 0
+           candidate_votes[candidate_name] = 0
            
-      > candidate_votes[candidate_name] += 
+       candidate_votes[candidate_name] += 
 
 5. Using f-strings to print out data summaries with a mix of strings and variables. Variables are written inside squiggly brackets, `{}`.
 
