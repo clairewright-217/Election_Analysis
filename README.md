@@ -117,7 +117,7 @@ A conditional was used in this `for` loop to find the vote count and the name of
 ```
             
 
-The values of all of the `winning_county` variable from the conditional above was printed to the terminal and on the [Election Analysis text file](analyis/election_analysis.txt) in a formatted style using an f-string. 
+The values of all of the `winning_county` variable from the conditional above was printed to the terminal and on the [Election Analysis text file](analysis/election_analysis.txt) in a formatted style using an f-string. 
 
 ```
  winning_county_summary = (
