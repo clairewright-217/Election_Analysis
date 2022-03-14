@@ -145,4 +145,7 @@ Winning Percentage: 73.8%**
 
 ## Election Audit Summary
 
+This code could be reused to analyze the results of future elections with a couple of minor modifications. 
 
+1. I'd recommend replacing the `file_to_load = os.path.join("Resources", "election_results.csv")` code at the beginning of the .py file with an `input` to prompt the user to provide the path to the dataset. This is to make sure the python file still runs even if the location of the csv file containing the election results changes. This could look something like, `file_to_load = input("Please provide the path to the csv file containing the election results").
+2. You might also want to print out the header columns of the csv file to make sure that the location of data in the file is where you expect it to be. After header is defined, enter code to `print(header)` and make sure the results are `[Ballot ID,County,Candidate]`. I'd also research ways to code a solution to check this against the expected result automatically. Perhaps you could have a variable, `expected_results`, that could be printed using an f-statement with the output "The expected column headers are [Ballot ID,County,Candidate]". 
