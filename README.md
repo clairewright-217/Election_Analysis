@@ -15,7 +15,7 @@ A Colorado Board of Elections employee needs help to complete an election audit 
 
 
 ## Resources
-Data Source: election_results.csv
+Data Source: [election_results.csv](Resources/election_results.csv)
 Software: Python 3.9.7, Visual Studio Code, 1.64.2 (Universal)
 
 ## Summary
